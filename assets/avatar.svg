@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="45%"><stop offset="0" stop-color="#182b39"/><stop offset=".55" stop-color="#0b1118"/><stop offset="1" stop-color="#05070b"/></radialGradient>
+  <linearGradient id="cyan" x1="0" x2="1"><stop stop-color="#55e6ff"/><stop offset="1" stop-color="#8a7dff"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="700" height="700" rx="30" fill="url(#bg)"/>
+<g opacity=".22" stroke="#55e6ff" fill="none">
+ <circle cx="350" cy="350" r="245"/><circle cx="350" cy="350" r="205"/><circle cx="350" cy="350" r="150"/>
+ <path d="M90 350h520M350 90v520M150 150l400 400M550 150L150 550"/>
+</g>
+<g filter="url(#glow)" stroke="url(#cyan)" fill="none" stroke-width="7">
+ <path d="M270 185h160l72 80v150l-72 100H270l-72-100V265z"/>
+ <path d="M230 310h60l28 26v45l-28 26h-60M470 310h-60l-28 26v45l28 26h60"/>
+ <path d="M300 475h100"/>
+</g>
+<g fill="#55e6ff">
+ <circle cx="295" cy="355" r="8"/><circle cx="405" cy="355" r="8"/>
+</g>
+<g stroke="#8a7dff" stroke-width="3" opacity=".75">
+ <path d="M260 230l-50 35M440 230l50 35M250 480l-45 38M450 480l45 38"/>
+</g>
+<text x="350" y="610" text-anchor="middle" fill="#8e98a8" font-family="monospace" font-size="18" letter-spacing="6">SECURITY / ENGINEER</text>
+</svg>
