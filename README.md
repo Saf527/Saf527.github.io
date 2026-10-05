@@ -40,3 +40,17 @@ Replace `assets/Safwan-Shaikh-Resume.pdf` with your actual resume PDF.
 The contact form uses FormSubmit to send submissions directly to the configured email address.
 
 GitHub projects are loaded from the public GitHub API for `Saf527`.
+
+
+## Enhanced version
+
+The portfolio now includes:
+- Dynamic GitHub repository cards
+- Project detail modals
+- Dark/light theme
+- SEO metadata and JSON-LD structured data
+- Open Graph/Twitter metadata
+- Custom 404 page
+- robots.txt and sitemap.xml
+- Direct contact form submission
+- Responsive mobile layout

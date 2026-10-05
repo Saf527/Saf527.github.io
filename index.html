@@ -6,10 +6,38 @@
   <meta name="description" content="Safwan Shaikh — Technical Support Engineer specializing in endpoint security, troubleshooting, EDR/XDR and incident investigation.">
   <meta name="keywords" content="Safwan Shaikh, Technical Support Engineer, Endpoint Security, Cybersecurity, Sophos, EDR, XDR, Troubleshooting">
   <meta name="author" content="Safwan Shaikh">
+  <meta name="theme-color" content="#07090d">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://saf527.github.io/">
   <meta property="og:title" content="Safwan Shaikh | Endpoint Security Engineer">
   <meta property="og:description" content="Technical Support Engineer focused on endpoint security, troubleshooting and incident investigation.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://saf527.github.io/">
+  <meta property="og:image" content="https://saf527.github.io/assets/avatar.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Safwan Shaikh | Endpoint Security Engineer">
+  <meta name="twitter:description" content="Technical Support Engineer focused on endpoint security, troubleshooting and incident investigation.">
+  <meta name="twitter:image" content="https://saf527.github.io/assets/avatar.svg">
   <title>Safwan Shaikh | Endpoint Security Engineer</title>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Safwan Shaikh",
+    "url":"https://saf527.github.io/",
+    "jobTitle":"Technical Support Engineer",
+    "description":"Technical Support Engineer focused on endpoint security, troubleshooting and incident investigation.",
+    "sameAs":[
+      "https://github.com/Saf527",
+      "https://www.linkedin.com/in/safwanshaikha65100200/"
+    ],
+    "knowsAbout":[
+      "Endpoint Security","EDR","XDR","Technical Support","Root Cause Analysis",
+      "Wireshark","Sophos Central","Log Analysis","Python","NLP"
+    ]
+  }
+  </script>
+
   <link rel="icon" href="assets/avatar.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -206,6 +234,7 @@
           <h3>Text Summarization</h3>
           <p>Research and implementation work exploring text summarization using NLP and transformer-based approaches.</p>
           <div class="tag-list"><span>Python</span><span>NLP</span><span>Machine Learning</span><span>Transformers</span></div>
+          <button class="project-detail-btn" data-project="summarization">View details ↗</button>
         </article>
 
         <article class="project-card reveal">
@@ -214,6 +243,7 @@
           <h3>Stress Detection</h3>
           <p>Machine learning project using sentiment analysis and NLP on social-media comments to detect psychological stress levels.</p>
           <div class="tag-list"><span>Python</span><span>Sentiment Analysis</span><span>NLP</span></div>
+          <button class="project-detail-btn" data-project="stress">View details ↗</button>
         </article>
 
         <article class="project-card reveal">
@@ -222,6 +252,7 @@
           <h3>Blood Report Automation</h3>
           <p>Django-based project that automated delivery of blood reports and paired results with data-driven health insights.</p>
           <div class="tag-list"><span>Python</span><span>Django</span><span>Automation</span></div>
+          <button class="project-detail-btn" data-project="blood">View details ↗</button>
         </article>
       </div>
 
@@ -229,6 +260,7 @@
         <div><p class="eyebrow">LIVE FROM GITHUB</p><h3>More work on <span class="accent">@Saf527</span></h3></div>
         <a class="btn btn-secondary" href="https://github.com/Saf527" target="_blank" rel="noopener">Open GitHub ↗</a>
       </div>
+      <div class="github-status" id="githubStatus">Connecting to GitHub…</div>
       <div class="github-grid" id="githubProjects" aria-live="polite"></div>
     </section>
 
@@ -245,6 +277,20 @@
         <article class="cert-card reveal"><span>04</span><h3>Introduction to Internet of Things</h3><p>NPTEL</p></article>
       </div>
     </section>
+
+
+    <div class="modal" id="projectModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" id="modalClose" aria-label="Close project details">×</button>
+        <p class="eyebrow" id="modalKicker"></p>
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+        <div class="tag-list" id="modalTags"></div>
+        <div class="modal-divider"></div>
+        <div class="modal-meta" id="modalMeta"></div>
+      </div>
+    </div>
 
     <section class="section contact-section" id="contact">
       <div class="contact-box reveal">
@@ -268,10 +314,16 @@
     </section>
   </main>
 
+  <section class="availability-strip">
+    <div><span class="status-dot"></span><strong>AVAILABLE FOR OPPORTUNITIES</strong></div>
+    <span>Technical Support · Endpoint Security · Cybersecurity</span>
+    <a href="#contact">Start a conversation ↗</a>
+  </section>
+
   <footer class="footer">
     <div><strong>SAFWAN<span class="accent">.</span></strong><span>Technical Support Engineer · Endpoint Security</span></div>
     <div class="footer-links">
-      <a href="https://www.linkedin.com/in/safwan-shaikh-a65100200/?isSelfProfile=true" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/safwanshaikha65100200/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/Saf527" target="_blank" rel="noopener">GitHub</a>
       <a href="mailto:shaikhsafwan527@gmail.com">Email</a>
     </div>

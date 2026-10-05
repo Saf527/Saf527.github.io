@@ -85,23 +85,85 @@ contactForm.addEventListener("submit", async e => {
 
 async function loadGitHubRepos() {
   const box = $("#githubProjects");
+  const status = $("#githubStatus");
   try {
     const response = await fetch("https://api.github.com/users/Saf527/repos?sort=updated&per_page=6");
     if (!response.ok) throw new Error("GitHub API unavailable");
     const repos = await response.json();
     if (!repos.length) throw new Error("No public repositories");
+
+    status.textContent = `${repos.length} recent public repositories loaded from GitHub.`;
+
     box.innerHTML = repos.map(repo => `
       <a class="github-repo reveal visible" href="${repo.html_url}" target="_blank" rel="noopener">
-        <h4>${escapeHTML(repo.name)}</h4>
+        <div class="repo-top">
+          <h4>${escapeHTML(repo.name)}</h4>
+          <span class="repo-lang">${escapeHTML(repo.language || "CODE")}</span>
+        </div>
         <p>${escapeHTML(repo.description || "Public GitHub repository")}</p>
-        <small>${escapeHTML(repo.language || "CODE")} · ${repo.stargazers_count} ★</small>
+        <small>${repo.stargazers_count} ★ · ${repo.forks_count} forks · Open repository ↗</small>
       </a>
     `).join("");
   } catch {
-    box.innerHTML = `<a class="github-repo reveal visible" href="https://github.com/Saf527" target="_blank" rel="noopener"><h4>View GitHub projects</h4><p>Explore my public repositories and technical work.</p><small>GITHUB.COM/SAF527 ↗</small></a>`;
+    status.textContent = "GitHub projects are available directly from @Saf527.";
+    box.innerHTML = `<a class="github-repo reveal visible" href="https://github.com/Saf527" target="_blank" rel="noopener">
+      <div class="repo-top"><h4>View GitHub projects</h4><span class="repo-lang">GITHUB</span></div>
+      <p>Explore my public repositories and technical work.</p>
+      <small>GITHUB.COM/SAF527 ↗</small>
+    </a>`;
   }
 }
+
 function escapeHTML(value) {
   return String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
 }
+const projectDetails = {
+  summarization: {
+    kicker: "NLP · MACHINE LEARNING",
+    title: "Text Summarization",
+    description: "Research and implementation work focused on text summarization using NLP and Python, exploring transformer-based approaches and evaluation workflows.",
+    tags: ["Python", "NLP", "Machine Learning", "Transformers"],
+    meta: ["Context: BISAG-N project internship", "Focus: Summarization research"]
+  },
+  stress: {
+    kicker: "ML · NLP",
+    title: "Stress Detection",
+    description: "A machine-learning project using sentiment analysis and natural language processing on social-media comments to detect psychological stress levels.",
+    tags: ["Python", "Sentiment Analysis", "NLP"],
+    meta: ["Duration: 6 weeks", "Focus: Social-media text analysis"]
+  },
+  blood: {
+    kicker: "PYTHON · DJANGO",
+    title: "Blood Report Automation",
+    description: "A Django-based project that automated the delivery of blood reports and paired clinical results with data-driven health insights.",
+    tags: ["Python", "Django", "Automation"],
+    meta: ["Context: Brainy Beam internship", "Focus: Workflow automation"]
+  }
+};
+
+const modal = $("#projectModal");
+const modalClose = $("#modalClose");
+
+function openProjectModal(key) {
+  const project = projectDetails[key];
+  if (!project) return;
+  $("#modalKicker").textContent = project.kicker;
+  $("#modalTitle").textContent = project.title;
+  $("#modalDescription").textContent = project.description;
+  $("#modalTags").innerHTML = project.tags.map(tag => `<span>${escapeHTML(tag)}</span>`).join("");
+  $("#modalMeta").innerHTML = project.meta.map(item => `<div>${escapeHTML(item)}</div>`).join("");
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+function closeProjectModal() {
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+$$(".project-detail-btn").forEach(btn => btn.addEventListener("click", () => openProjectModal(btn.dataset.project)));
+modalClose.addEventListener("click", closeProjectModal);
+$$("[data-close-modal]").forEach(el => el.addEventListener("click", closeProjectModal));
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeProjectModal(); });
+
 loadGitHubRepos();
